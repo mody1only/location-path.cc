@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>مسار الأماكن</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { font-family: Tahoma; margin: 20px; direction: rtl; }
+    input, button { margin: 5px 0; padding: 10px; width: 100%; font-size: 16px; }
+    #currentPoint { margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 8px; background: #f9f9f9; }
+    #doneBtn, #openMapBtn, #restartBtn, #saveBtn, #loadBtn { margin-top: 10px; display: block; }
+    #map { height: 400px; margin-top: 20px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <h2>إدارة المسار الأقرب</h2>
+
+  <input id="locationInput" placeholder="اسم أو رابط لوكيشن واتساب">
+  <button onclick="addLocation()">إضافة لوكيشن</button>
+  <button onclick="getUserLocation()">ابدأ المسار (حسب موقعك الحالي)</button>
+  <button id="saveBtn" onclick="saveLocations()">💾 حفظ المسار</button>
+  <button id="loadBtn" onclick="loadLocations()">📂 تحميل المسار</button>
+
+  <div id="currentPoint" style="display: none;">
+    <h3 id="pointName"></h3>
+    <button id="openMapBtn" onclick="openInMap()">افتح على الخريطة</button>
+    <button id="doneBtn" onclick="nextPoint()">تم</button>
+    <button id="restartBtn" onclick="restartPath()" style="display:none;">ابدأ من جديد</button>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
